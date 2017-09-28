@@ -2,7 +2,6 @@
     <v-card>
 
         <v-card-title>
-            {{ posts }}
             <v-spacer></v-spacer>
             <v-text-field
                     append-icon="search"
@@ -28,14 +27,9 @@
             </template>
             <template slot="items" scope="props">
                 <tr @click="goTo(props.item.fat)">
-                <td>{{ props.item.name }}</td>
-                <td  class="text-xs-right">{{ props.item.calories }}</td>
-                <td  class="text-xs-right">{{ props.item.fat }}</td>
-                <td  class="text-xs-right">{{ props.item.carbs }}</td>
-                <td  class="text-xs-right">{{ props.item.protein }}</td>
-                <td  class="text-xs-right">{{ props.item.sodium }}</td>
-                <td  class="text-xs-right">{{ props.item.calcium }}</td>
-                <td  class="text-xs-right">{{ props.item.iron }}</td>
+                <td>{{ props.item.id }}</td>
+                <td  class="text-xs-right">{{ props.item.data.title }}</td>
+                <td  class="text-xs-right">{{ props.item.body }}</td>
                 </tr>
             </template>
         </v-data-table>
@@ -54,18 +48,13 @@
         pagination: {},
         headers: [
           {
-            text: 'Dessert (100g serving)',
+            text: 'ID',
             align: 'left',
             sortable: false,
-            value: 'name'
+            value: 'id'
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
-          { text: 'Sodium (mg)', value: 'sodium' },
-          { text: 'Calcium (%)', value: 'calcium' },
-          { text: 'Iron (%)', value: 'iron' }
+          { text: 'Titulo', value: 'title' },
+          { text: 'Texto', value: 'body' },
         ]
       }
     },
@@ -139,8 +128,7 @@
         })
       },
       getDesserts () {
-        return [
-        ]
+        return []
       }
     }
   }
